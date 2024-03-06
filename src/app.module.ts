@@ -5,6 +5,8 @@ import { ParkingGateway } from "./parking/gateways/parking.gateway";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { config } from "./config/orm.config";
 import { Parking } from "./parking/models/entities/parking.entity";
+import { ParkingsController } from './parking/controllers/parkings.controller';
+import { ParkingsService } from './parking/services/parkings.service';
 
 @Module({
   imports: [
@@ -13,8 +15,8 @@ import { Parking } from "./parking/models/entities/parking.entity";
       Parking,
     ]),
   ],
-  controllers: [ AppController ],
-  providers: [ AppService, ParkingGateway ]
+  controllers: [ AppController, ParkingsController ],
+  providers: [ AppService, ParkingGateway, ParkingsService ]
 })
 export class AppModule {
 }
