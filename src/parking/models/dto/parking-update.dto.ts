@@ -1,4 +1,4 @@
 export class ParkingUpdateDto {
-  id: number;
-  currentOccupancy: number;
+  id?: number;
+  currentOccupancy?: number;
 }
