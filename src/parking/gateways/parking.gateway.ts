@@ -46,7 +46,11 @@ export class ParkingGateway implements OnGatewayInit, OnGatewayConnection, OnGat
       await client.connect();
       await client.query("LISTEN parking_update");
       client.on("notification", async (_) => {
-        this.parkings = await this.parkingRepository.find();
+        this.parkings = await this.parkingRepository.find({
+          order: {
+            id: "ASC"
+          }
+        });
         server.emit("update", this.parkings);
       });
     } catch (e) {
@@ -83,7 +87,11 @@ export class ParkingGateway implements OnGatewayInit, OnGatewayConnection, OnGat
       }
       parking.currentOccupancy = parkingUpdateDto.currentOccupancy;
       await this.parkingRepository.save(parking);
-      this.parkings = await this.parkingRepository.find();
+      this.parkings = await this.parkingRepository.find({
+        order: {
+          id: "ASC"
+        }
+      });
     }
     client.broadcast.emit("update", this.parkings);
     return this.parkings;
