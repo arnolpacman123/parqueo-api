@@ -19,18 +19,6 @@ export class Parking {
   geom?: Point;
 
   @Column({
-    name: "capacity",
-    type: "integer"
-  })
-  capacity?: number;
-
-  @Column({
-    name: "current_occupancy",
-    type: "integer"
-  })
-  currentOccupancy?: number;
-
-  @Column({
     name: "is_full",
     type: "boolean"
   })
