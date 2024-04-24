@@ -55,6 +55,13 @@ export class Parking {
   })
   createdAt?: Date;
 
+  @Column({
+    name: 'credential',
+    type: 'text',
+    unique: true,
+  })
+  credential: string;
+
   @UpdateDateColumn({
     name: 'updated_at',
     type: 'timestamp',

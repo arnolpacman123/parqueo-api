@@ -21,4 +21,11 @@ export class ParkingsController {
   ) {
     return this.parkingsService.update(+id, parkingUpdateDto);
   }
+
+  @Get("credential/:credential")
+  async findByCredential(
+    @Param("credential") credential: string,
+  ) {
+    return this.parkingsService.findByCredential(credential);
+  }
 }
