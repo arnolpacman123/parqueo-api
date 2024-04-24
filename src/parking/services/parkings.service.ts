@@ -16,7 +16,7 @@ export class ParkingsService {
       order: {
         id: 'ASC',
       },
-      select: ['id', 'geom', 'isFull', 'startAttention', 'endAttention', 'imageUrl', 'createdAt'],
+      select: ['id', 'geom', 'isFull', 'startAttention', 'endAttention', 'imageUrl', 'createdAt', 'updatedAt'],
     });
   }
 
@@ -40,7 +40,7 @@ export class ParkingsService {
       where: {
         credential,
       },
-      select: ['id', 'geom', 'isFull', 'startAttention', 'endAttention', 'imageUrl', 'createdAt'],
+      select: ['id', 'geom', 'isFull', 'startAttention', 'endAttention', 'imageUrl', 'createdAt', 'updatedAt'],
     });
   }
 }
